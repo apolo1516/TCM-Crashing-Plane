@@ -12,4 +12,12 @@ public class MovebyVelocity : MonoBehaviour
         Rigidbody2D l_rigidbody2D = GetComponent<Rigidbody2D>();
         l_rigidbody2D.velocity = _direction.normalized * _speed;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
